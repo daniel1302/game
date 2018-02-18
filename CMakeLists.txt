@@ -4,7 +4,7 @@ project(Arkanoid)
 set (Arkanoid_VERSION_MAJOR 0)
 set (Arkanoid_VERSION_MINOR 1)
 
-include_directories ("/usr/include")
+include_directories (${INCLUDE_DIRECTORIES} "/usr/include")
 
 
 set (EXTRA_LIBS ${EXTRA_LIBS} sfml-system sfml-window sfml-graphics)
