@@ -11,12 +11,12 @@ public:
     AssetManager() {}
     ~AssetManager() {}
 
-    void loadTexture(std::string name, std::string filePath);
-    sf::Texture &getTexture(std::string name);
+    void loadTexture(std::string const& name, std::string const& filePath);
+    sf::Texture &getTexture(std::string const& name);
 
 
-    void loadFont(std::string name, std::string filePath);
-    sf::Font &getFont(std::string name);
+    void loadFont(std::string const& name, std::string const& filePath);
+    sf::Font &getFont(std::string const& name);
 
 private:
     std::map<std::string, sf::Texture> _textures;
