@@ -1,12 +1,11 @@
 #include <cstdlib>
-#include <stdint.h>
-#include <SFML/Graphics.hpp>
+#include <Game.h>
 
 
 int main(void)
 {
 
-
+    Game(800, 600, "Arkanoid");
 
     return EXIT_SUCCESS;
 }
