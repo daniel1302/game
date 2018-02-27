@@ -13,6 +13,6 @@ set (EXTRA_LIBS ${EXTRA_LIBS} sfml-system sfml-window sfml-graphics)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(SOURCE_FILES main.cpp src/State.h src/StateMachine.h src/StateMachine.cpp)
+set(SOURCE_FILES main.cpp src/State.h src/StateMachine.h src/StateMachine.cpp src/AssetManager.h src/AssetManager.cpp src/InputManager.h src/InputManager.cpp)
 add_executable(Arkanoid ${SOURCE_FILES})
 target_link_libraries (Arkanoid ${EXTRA_LIBS})
