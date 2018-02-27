@@ -3,7 +3,7 @@
 
 #include <memory>
 #include <stack>
-#include <SFML/Graphics>
+#include <SFML/Graphics.hpp>
 #include "StateMachine.h"
 #include "AssetManager.h"
 #include "InputManager.h"
@@ -16,8 +16,6 @@ struct GameData
     InputManager input;
 };
 
-typedef std::shared_ptr<GameData> GameDataRef;
-
 class Game
 {
 public:
@@ -26,8 +24,9 @@ public:
 private:
     const float _dt = 1.0f / 60;
     sf::Clock _clock;
-    GameDataRef _gameDate = std::make_shared<GameData>();
+    std::shared_ptr<GameData> _gameData = std::make_shared<GameData>();
 
+    void run();
 };
 
 #endif //ARKANOID_GAME_H
