@@ -17,7 +17,9 @@ public:
     void draw(float dt);
 
 private:
-    sf::Texture _texture;
+    sf::Clock _clock;
+    sf::Sprite _sprite;
+
     std::shared_ptr<GameData> _gameData;
 
 };

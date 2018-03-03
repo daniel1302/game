@@ -21,6 +21,6 @@ set(SOURCE_FILES main.cpp
         src/InputManager.h src/InputManager.cpp
         src/Game.h src/Game.cpp
         src/States/SplashState.cpp src/States/SplashState.h
-)
+        src/Math/ImageAdjuster.cpp src/Math/ImageAdjuster.h)
 add_executable(Arkanoid ${SOURCE_FILES})
 target_link_libraries (Arkanoid ${EXTRA_LIBS})
