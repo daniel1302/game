@@ -37,14 +37,16 @@ void StateMachine::processStateChanges()
             {
                 this->_states.top()->pause();
             }
-
-            this->_states.push(std::move(this->_newState));
-            this->_states.top()->init();
         }
+
+        this->_states.push(std::move(this->_newState));
+        this->_states.top()->init();
+        this->_isAdding = false;
     }
 }
 
 std::unique_ptr<State> &StateMachine::getCurrentState()
 {
+
     return this->_states.top();
 }

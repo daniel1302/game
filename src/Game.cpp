@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "States/SplashState.h"
 
 Game::Game(
         int windowWidth,
@@ -10,6 +11,8 @@ Game::Game(
             title,
             sf::Style::Close | sf::Style::Titlebar
     );
+
+    _gameData->machine.addState(std::make_unique<SplashState>(_gameData));
 
     this->run();
 }
