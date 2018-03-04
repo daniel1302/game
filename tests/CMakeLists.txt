@@ -5,10 +5,9 @@ include_directories (${INCLUDE_DIRECTORIES}
 )
 
 set(TEST_SOURCE_FILES
-        ./src/mainTests.cpp
         ./src/Math/ImageAdjusterTest.cpp)
 
 add_executable(testAll ${TEST_SOURCE_FILES})
 
-target_link_libraries(testAll ${EXTRA_LIBS} compiled_sources gtest)
+target_link_libraries(testAll gtest_main ${EXTRA_LIBS} compiled_sources gtest)
 add_test(testAll testAll)
