@@ -19,8 +19,6 @@ set (EXTRA_LIBS ${EXTRA_LIBS}
 set(CMAKE_CXX_STANDARD 17)
 
 
-enable_testing()
-
 set(SOURCE_FILES
         src/State.h
         src/definitions.h
@@ -34,7 +32,6 @@ set(SOURCE_FILES
 add_library(compiled_sources ${SOURCE_FILES})
 
 add_executable(Arkanoid src/main.cpp)
-
 target_link_libraries(Arkanoid ${EXTRA_LIBS} compiled_sources)
 
 
@@ -42,5 +39,5 @@ target_link_libraries(Arkanoid ${EXTRA_LIBS} compiled_sources)
 find_package(GTest)
 if (GTEST_FOUND)
     enable_testing()
-    add_subdirectory(test)
+    add_subdirectory(tests)
 endif()
