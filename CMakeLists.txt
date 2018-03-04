@@ -31,15 +31,16 @@ set(SOURCE_FILES
         src/States/SplashState.cpp src/States/SplashState.h
         src/Math/ImageAdjuster.cpp src/Math/ImageAdjuster.h)
 
-add_library(source_lib ${SOURCE_FILES})
+add_library(compiled_sources ${SOURCE_FILES})
 
 add_executable(Arkanoid src/main.cpp)
-target_link_libraries(Arkanoid ${EXTRA_LIBS} source_lib)
+
+target_link_libraries(Arkanoid ${EXTRA_LIBS} compiled_sources)
 
 
 
 find_package(GTest)
 if (GTEST_FOUND)
     enable_testing()
-    add_subdirectory(tests)
+    add_subdirectory(test)
 endif()

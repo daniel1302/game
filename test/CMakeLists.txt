@@ -10,4 +10,4 @@ set(TEST_SOURCE_FILES
 
 add_executable(tests ${TEST_SOURCE_FILES})
 
-target_link_libraries(tests ${EXTRA_LIBS} source_lib gtest)
+target_link_libraries(tests ${EXTRA_LIBS} compiled_sources gtest)
