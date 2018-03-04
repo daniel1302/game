@@ -32,24 +32,33 @@ sf::Vector2f ImageAdjuster::scale(bool scaleUp)
 
     auto scale = sf::Vector2f(1, 1);
 
-
-    if (_imageSize.x > _screenSize.x)
+    if (_imageSize.x > _screenSize.x
+            || _imageSize.y > _screenSize.y
+    )
     {
-        scale.x =
-        scale.y = _screenSize.x / _imageSize.x;
+        if (_imageSize.x > _screenSize.x) {
+            scale.x =
+            scale.y = _screenSize.x / _imageSize.x;
 
-        _imageSize.x *= scale.x;
-        _imageSize.y *= scale.y;
-    }
+            _imageSize.x *= scale.x;
+            _imageSize.y *= scale.y;
+        }
 
-    if (_imageSize.y > _screenSize.y)
-    {
-        float multiplier = (_screenSize.y / _imageSize.y);
-        scale.y *= multiplier;
-        scale.x *= multiplier;
+        if (_imageSize.y > _screenSize.y) {
+            float multiplier = (_screenSize.y / _imageSize.y);
+            scale.y *= multiplier;
+            scale.x *= multiplier;
 
-        _imageSize.x *= scale.x;
-        _imageSize.y *= scale.y;
+            _imageSize.x *= scale.x;
+            _imageSize.y *= scale.y;
+        }
+    } else {
+        float xScale = _screenSize.x / _imageSize.x;
+        float yScale =  _screenSize.y / _imageSize.y;
+
+        scale.x = scale.y =(xScale < yScale)
+                 ? xScale
+                 : yScale;
     }
 
     return scale;
