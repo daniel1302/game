@@ -2,6 +2,7 @@
 #include "definitions.h"
 
 #include <iostream>
+#include "Math/ImageAdjuster.h"
 
 SplashState::SplashState(std::shared_ptr<GameData> game)
 {
@@ -20,25 +21,21 @@ void SplashState::init()
     );
 
 
-    sf::Vector2u textureSize = _sprite
+    sf::Vector2u _textureSize = _sprite
             .getTexture()
             ->getSize();
 
+    sf::Vector2f textureSize(_textureSize.x, _textureSize.y);
 
-    sf::Vector2f textureScale(1, 1);
+    ImageAdjuster adjuster = ImageAdjuster(
+            sf::Vector2f(SCREEN_WIDTH, SCREEN_HEIGHT),
+            textureSize
+    );
 
-    /**
-     * Screen.x > screen.y
-     *      img x > img.y
-     *
-     */
-    if (textureSize.x > SCREEN_WIDTH || textureSize.y > SCREEN_HEIGHT)
-    {
-
-
-        _sprite.scale(textureScale);
-    }
-
+    sf::Vector2f textureScale = adjuster.scale(false);
+    textureSize.x *= textureScale.x;
+    textureSize.y *= textureScale.y;
+    _sprite.scale(textureScale);
 
     sf::Vector2f texturePosition(0, 0);
 
