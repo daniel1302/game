@@ -8,8 +8,7 @@ set(TEST_SOURCE_FILES
         ./src/mainTests.cpp
         ./src/Math/ImageAdjusterTest.cpp)
 
-add_executable(allTests ${TEST_SOURCE_FILES})
+add_executable(testAll ${TEST_SOURCE_FILES})
 
-target_link_libraries(allTests ${EXTRA_LIBS} compiled_sources gtest)
-
-add_test(all_tests allTests)
+target_link_libraries(testAll ${EXTRA_LIBS} compiled_sources gtest)
+add_test(testAll testAll)
