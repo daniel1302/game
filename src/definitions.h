@@ -7,7 +7,7 @@
 
 
 
-#define SPLASH_STATE_BACKGROUND_TIME "../assets/splash_state_background.jpg"
+#define SPLASH_STATE_BACKGROUND_FILEPATH "../assets/splash_state_background.jpg"
 
 
 
