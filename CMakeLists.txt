@@ -21,7 +21,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 enable_testing()
 
-set(SOURCE_FILES src/main.cpp
+set(SOURCE_FILES
         src/State.h
         src/definitions.h
         src/StateMachine.h src/StateMachine.cpp
@@ -31,9 +31,10 @@ set(SOURCE_FILES src/main.cpp
         src/States/SplashState.cpp src/States/SplashState.h
         src/Math/ImageAdjuster.cpp src/Math/ImageAdjuster.h)
 
+add_library(source_lib ${SOURCE_FILES})
 
-add_executable(Arkanoid ${SOURCE_FILES})
-target_link_libraries(Arkanoid ${EXTRA_LIBS})
+add_executable(Arkanoid src/main.cpp)
+target_link_libraries(Arkanoid ${EXTRA_LIBS} source_lib)
 
 
 
