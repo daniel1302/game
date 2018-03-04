@@ -8,7 +8,7 @@ class ImageAdjuster
 {
 public:
     ImageAdjuster();
-    ImageAdjuster(const sf::Vector2f &screenSize, const sf::Vector2 &imageSize);
+    ImageAdjuster(const sf::Vector2f &screenSize, const sf::Vector2f &imageSize);
 
     sf::Vector2f scale(bool scaleUp=false);
 

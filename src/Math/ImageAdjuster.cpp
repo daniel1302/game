@@ -1,11 +1,11 @@
 #include "ImageAdjuster.h"
-
+#include <iostream>
 
 ImageAdjuster::ImageAdjuster()
 {
 }
 
-ImageAdjuster::ImageAdjuster(const sf::Vector2f &screenSize, const sf::Vector2 &imageSize)
+ImageAdjuster::ImageAdjuster(const sf::Vector2f &screenSize, const sf::Vector2f &imageSize)
 {
     _screenSize = screenSize;
     _imageSize = imageSize;
@@ -23,5 +23,5 @@ void ImageAdjuster::setImageSize(const sf::Vector2f &vector)
 
 sf::Vector2f ImageAdjuster::scale(bool scaleUp)
 {
-//    if ()
+    std::cout<<"ImageAdjuster::scale()";
 }
