@@ -1,8 +1,9 @@
 #include "SplashState.h"
 #include "definitions.h"
 
-#include <iostream>
 #include "Math/ImageAdjuster.h"
+#include "MainMenuState.h"
+
 
 SplashState::SplashState(std::shared_ptr<GameData> game)
 {
@@ -50,7 +51,6 @@ void SplashState::init()
     }
 
     _sprite.setPosition(texturePosition);
-
 }
 
 void SplashState::handleInput()
@@ -68,13 +68,15 @@ void SplashState::handleInput()
 
 void SplashState::update(float dt)
 {
-
+    if (_clock.getElapsedTime().asMilliseconds() > SPLASH_SCREEN_DURATION_MS)
+    {
+        _gameData->machine.addState(std::make_unique<MainMenuState>(_gameData));
+    }
 }
 
 void SplashState::draw(float dt)
 {
     _gameData->window.clear();
-
     _gameData->window.draw(_sprite);
 
     _gameData->window.display();
