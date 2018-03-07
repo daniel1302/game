@@ -18,7 +18,8 @@ public:
 private:
     std::shared_ptr<GameData> _gameData;
 
-    sf::Sprite _sprite;
+    sf::Sprite _background;
+    sf::Text text;
 };
 
 

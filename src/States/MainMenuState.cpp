@@ -1,4 +1,5 @@
 #include "MainMenuState.h"
+#include "Math/ImageAdjuster.h"
 #include <iostream>
 #include "definitions.h"
 
@@ -12,13 +13,26 @@ void MainMenuState::init()
 {
     _gameData
             ->assets
-            .loadTexture("texture", TEXTURE_FILEPATH);
+            .loadTexture("background", BACKGROUND_FILEPATH);
 
-    _sprite.setTexture(_gameData
+    _background.setTexture(_gameData
                                ->assets
-                               .getTexture("splash_state_background")
+                               .getTexture("background")
     );
-    std::cout<<"MainMenuState::init(): "<<_gameData.get() <<std::endl<<std::flush;
+
+    ImageAdjuster adjuster(
+            sf::Vector2f(SCREEN_WIDTH, SCREEN_HEIGHT),
+            sf::Vector2f(_background.getTexture()->getSize())
+    );
+
+    sf::Vector2f scale = adjuster.scale(true);
+
+    _background.scale(scale);
+
+    _gameData
+            ->assets
+            .loadFont("arcade-classic", ARCADE_CLASSIC_FONT_FILEPATH);
+
 }
 
 void MainMenuState::handleInput()
@@ -36,14 +50,70 @@ void MainMenuState::handleInput()
 
 void MainMenuState::update(float dt)
 {
-
+    if (_gameData->input.isTextClicked(text, sf::Mouse::Left, _gameData->window))
+    {
+        std::cout<<"Clicked";
+    }
 }
 
 void MainMenuState::draw(float dt)
 {
-//    std::cout<<"MainMenuState::draw()"<<std::endl<<std::flush;
-//    _gameData->window.draw(_sprite);
-
     _gameData->window.clear();
+
+    _gameData->window.draw(_background);
+
+    text.setFont(_gameData->assets.getFont("arcade-classic"));
+    text.setString("Arkanoid");
+    text.setCharacterSize(88);
+    text.setStyle(sf::Text::Bold);
+    text.setFillColor(sf::Color::White);
+
+    sf::FloatRect textRect = text.getLocalBounds();
+    text.setOrigin(textRect.left + textRect.width/2.0f,
+                   textRect.top  + textRect.height/2.0f);
+    text.setPosition(sf::Vector2f(SCREEN_WIDTH/2.0f,40));
+
+    _gameData->window.draw(text);
+
+
+    text.setCharacterSize(52);
+
+    text.setString("New game");
+    textRect = text.getLocalBounds();
+    text.setOrigin(textRect.left + textRect.width/2.0f,
+                   textRect.top  + textRect.height/2.0f);
+    text.setPosition(sf::Vector2f(SCREEN_WIDTH/2.0f, 200));
+
+    _gameData->window.draw(text);
+
+
+    text.setString("High scores");
+    textRect = text.getLocalBounds();
+    text.setOrigin(textRect.left + textRect.width/2.0f,
+                   textRect.top  + textRect.height/2.0f);
+    text.setPosition(sf::Vector2f(SCREEN_WIDTH/2.0f, 260));
+
+    _gameData->window.draw(text);
+
+
+    text.setString("Authors");
+    textRect = text.getLocalBounds();
+    text.setOrigin(textRect.left + textRect.width/2.0f,
+                   textRect.top  + textRect.height/2.0f);
+    text.setPosition(sf::Vector2f(SCREEN_WIDTH/2.0f, 320));
+
+    _gameData->window.draw(text);
+
+
+    text.setString("Exit game");
+    textRect = text.getLocalBounds();
+    text.setOrigin(textRect.left + textRect.width/2.0f,
+                   textRect.top  + textRect.height/2.0f);
+    text.setPosition(sf::Vector2f(SCREEN_WIDTH/2.0f, 440));
+
+    _gameData->window.draw(text);
+
+
+
     _gameData->window.display();
 }

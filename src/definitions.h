@@ -13,4 +13,8 @@
 
 #define TEXTURE_FILEPATH "../assets/texture.png"
 
+#define BACKGROUND_FILEPATH "../assets/bg.png"
+#define ARCADE_CLASSIC_FONT_FILEPATH "../assets/arcade-classic.ttf"
+
+
 #endif //ARKANOID_DEFINITIONS_H
