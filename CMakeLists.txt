@@ -28,7 +28,7 @@ set(SOURCE_FILES
         src/Game.h src/Game.cpp
         src/States/SplashState.cpp src/States/SplashState.h
         src/Math/ImageAdjuster.cpp src/Math/ImageAdjuster.h
-        src/States/MainMenuState.cpp src/States/MainMenuState.h)
+        src/States/MainMenuState.cpp src/States/MainMenuState.h src/GameObjects/GameText.cpp src/GameObjects/GameText.h)
 
 add_library(compiled_sources ${SOURCE_FILES})
 

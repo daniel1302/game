@@ -1,6 +1,7 @@
 #include "MainMenuState.h"
 #include "Math/ImageAdjuster.h"
 #include <iostream>
+#include <GameObjects/GameText.h>
 #include "definitions.h"
 
 
@@ -45,15 +46,17 @@ void MainMenuState::handleInput()
         {
             _gameData->window.close();
         }
+
+        if (_gameData->input.isTextClicked(text, sf::Mouse::Left, _gameData->window))
+        {
+            std::cout<<"Clicked: "<<text.getString().toAnsiString()<<std::flush;
+        }
     }
 }
 
 void MainMenuState::update(float dt)
 {
-    if (_gameData->input.isTextClicked(text, sf::Mouse::Left, _gameData->window))
-    {
-        std::cout<<"Clicked";
-    }
+
 }
 
 void MainMenuState::draw(float dt)
@@ -61,6 +64,8 @@ void MainMenuState::draw(float dt)
     _gameData->window.clear();
 
     _gameData->window.draw(_background);
+
+    GameText string("Daniel", _gameData->assets.getFont("arcade-classic"));
 
     text.setFont(_gameData->assets.getFont("arcade-classic"));
     text.setString("Arkanoid");
