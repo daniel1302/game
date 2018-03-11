@@ -91,7 +91,18 @@ void GameText::toLeft()
 
 void GameText::toCenter()
 {
+    sf::FloatRect textRect = _text.getLocalBounds();
 
+    _text.setOrigin(
+            textRect.left + textRect.width/2.0,
+            textRect.top + textRect.height/2.0
+    );
+
+    _text.setPosition(
+            SCREEN_WIDTH/2.0,
+            _text.getPosition().y
+
+    );
 }
 
 void GameText::toRight()
@@ -108,7 +119,18 @@ void GameText::toTop()
 
 void GameText::toMiddle()
 {
+    sf::FloatRect textRect = _text.getLocalBounds();
 
+    _text.setOrigin(
+            textRect.left+ textRect.width/2.0,
+            textRect.top + textRect.height/2.0
+    );
+
+    _text.setPosition(
+            _text.getPosition().x,
+            SCREEN_HEIGHT/2.0
+
+    );
 }
 
 void GameText::toBottom()
