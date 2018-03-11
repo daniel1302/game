@@ -60,20 +60,6 @@ GameText::GameText(
 
 }
 
-
-//ext.setFont(_gameData->assets.getFont("arcade-classic"));
-//text.setString("Arkanoid");
-//text.setCharacterSize(88);
-//text.setStyle(sf::Text::Bold);
-//text.setFillColor(sf::Color::White);
-//
-//sf::FloatRect textRect = text.getLocalBounds();
-//text.setOrigin(textRect.left + textRect.width/2.0f,
-//textRect.top  + textRect.height/2.0f);
-//text.setPosition(sf::Vector2f(SCREEN_WIDTH/2.0f,40));
-//
-//_gameData->window.draw(text);
-
 sf::Text& GameText::getText()
 {
     return _text;
