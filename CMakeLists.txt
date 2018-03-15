@@ -28,7 +28,12 @@ set(SOURCE_FILES
         src/Game.h src/Game.cpp
         src/States/SplashState.cpp src/States/SplashState.h
         src/Math/ImageAdjuster.cpp src/Math/ImageAdjuster.h
-        src/States/MainMenuState.cpp src/States/MainMenuState.h src/GameObjects/GameText.cpp src/GameObjects/GameText.h)
+        src/States/MainMenuState.cpp src/States/MainMenuState.h
+        src/GameObjects/GameText.cpp src/GameObjects/GameText.h
+        src/States/GameState.cpp src/States/GameState.h
+        src/GameObjects/Block.cpp src/GameObjects/Block.h
+        src/Math/SpriteCollision.cpp src/Math/SpriteCollision.h
+        src/GameObjects/GameObject.h src/GameObjects/Ball.cpp src/GameObjects/Ball.h src/GameObjects/Board.cpp src/GameObjects/Board.h src/GameObjects/Paddle.cpp src/GameObjects/Paddle.h)
 
 add_library(compiled_sources ${SOURCE_FILES})
 
