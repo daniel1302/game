@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <GameObjects/GameText.h>
+#include <EventHandler.h>
 #include "State.h"
 #include "Game.h"
 
@@ -28,6 +29,8 @@ private:
     std::unique_ptr<GameText> _authorsText;
     std::unique_ptr<GameText> _highscoresText;
     std::unique_ptr<GameText> _quitText;
+
+    std::unique_ptr<EventHandler> _eventHandler;
 };
 
 

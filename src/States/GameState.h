@@ -2,7 +2,10 @@
 #define ARKANOID_GAMESTATE_H
 
 
+#include "GameObjects/Board.h"
+#include <memory>
 #include "Game.h"
+
 
 class GameState : public State
 {
@@ -16,6 +19,10 @@ public:
     void draw(float dt);
 
 private:
+    std::shared_ptr<GameData> _game;
+    std::unique_ptr<Board> _board;
+
+    std::unique_ptr<EventHandler> _eventHandler;
 
 };
 

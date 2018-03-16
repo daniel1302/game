@@ -33,7 +33,11 @@ set(SOURCE_FILES
         src/States/GameState.cpp src/States/GameState.h
         src/GameObjects/Block.cpp src/GameObjects/Block.h
         src/Math/SpriteCollision.cpp src/Math/SpriteCollision.h
-        src/GameObjects/GameObject.h src/GameObjects/Ball.cpp src/GameObjects/Ball.h src/GameObjects/Board.cpp src/GameObjects/Board.h src/GameObjects/Paddle.cpp src/GameObjects/Paddle.h)
+        src/GameObjects/GameObject.h
+        src/GameObjects/Ball.cpp src/GameObjects/Ball.h
+        src/GameObjects/Board.cpp src/GameObjects/Board.h
+        src/GameObjects/Paddle.cpp src/GameObjects/Paddle.h
+        src/EventHandler.cpp src/EventHandler.h)
 
 add_library(compiled_sources ${SOURCE_FILES})
 

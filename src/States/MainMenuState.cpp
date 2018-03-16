@@ -2,11 +2,14 @@
 #include "Math/ImageAdjuster.h"
 #include <iostream>
 #include "definitions.h"
+#include "GameState.h"
 
 
 MainMenuState::MainMenuState(std::shared_ptr<GameData> game)
 {
     _gameData = game;
+
+    _eventHandler = std::make_unique<EventHandler>(game);
 }
 
 void MainMenuState::init()
@@ -95,7 +98,10 @@ void MainMenuState::handleInput()
     {
         if (_gameData->input.isTextClicked(_newGameText->getText(), sf::Mouse::Left, _gameData->window)) {
 
-            std::cout << "Go to New game state"<<std::flush;
+            _gameData
+                    ->machine
+                    .addState(std::make_unique<GameState>(_gameData), false);
+
             break;
         }
 
@@ -111,12 +117,10 @@ void MainMenuState::handleInput()
             break;
         }
 
-        if (event.type == sf::Event::Closed
-                || _gameData->input.isTextClicked(_quitText->getText(), sf::Mouse::Left, _gameData->window)
-        ) {
-
-            _gameData->window.close();
-        }
+        _eventHandler->handleClose(
+                event,
+                _gameData->input.isTextClicked(_quitText->getText(), sf::Mouse::Left, _gameData->window)
+        );
 
     }
 }
