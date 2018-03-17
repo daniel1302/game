@@ -6,7 +6,8 @@ Ball::Ball(const sf::Texture &texture, const sf::IntRect textureRect)
     _sprite.setTextureRect(textureRect);
 }
 
-const sf::Sprite& Ball::getSprite() const
+sf::Sprite& Ball::getSprite()
 {
     return _sprite;
 }
+

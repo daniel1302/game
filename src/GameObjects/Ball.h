@@ -8,7 +8,7 @@ class Ball : public GameObject
 {
 public:
     Ball(const sf::Texture &texture, const sf::IntRect textureRect);
-    const sf::Sprite &getSprite() const;
+    sf::Sprite &getSprite() override;
 
 private:
     sf::Sprite _sprite;

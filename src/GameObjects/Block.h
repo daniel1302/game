@@ -8,10 +8,15 @@
 
 class Block : public GameObject {
 public:
-    const sf::Sprite &getSprite() const override;
+    Block(
+            sf::Texture &texture,
+            const sf::IntRect &rect,
+            const sf::Vector2f &position = sf::Vector2f(0,0)
+    );
+    sf::Sprite &getSprite() override;
 
 private:
-    sf::Sprite _sprite;
+    sf::Sprite _sprite{};
 };
 
 

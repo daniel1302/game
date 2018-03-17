@@ -6,7 +6,7 @@
 
 class GameObject {
 public:
-    virtual const sf::Sprite &getSprite() const = 0;
+    virtual sf::Sprite &getSprite() = 0;
     virtual ~GameObject() {};
 };
 

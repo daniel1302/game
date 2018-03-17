@@ -20,6 +20,11 @@ void GameState::draw(float dt)
 
     _game->window.draw(_board->getBackground());
 
+    for (auto& x : _board->getVisibleBlocks())
+    {
+        _game->window.draw(x.getSprite());
+    }
+
     _game->window.display();
 }
 

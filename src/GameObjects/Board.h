@@ -14,17 +14,19 @@ class Board
 public:
     Board(std::shared_ptr<GameData> game);
 
-    const sf::Sprite &getBackground() const;
+    const sf::Sprite &getBackground();
 
-//    const std::vector &getVisibleBlocks() const;
+    std::vector<Block> &getVisibleBlocks();
 //    const Paddle &getPaddle() const;
 //    const Ball &getBall() const;
 
+private:
+    void generateLevel();
 
 private:
     std::shared_ptr<GameData> _game;
 
-    std::vector<Block> blocks;
+    std::vector<Block> _blocks;
     std::unique_ptr<Ball> ball;
     std::unique_ptr<Paddle> paddle;
 
