@@ -1,4 +1,5 @@
 #include <EventHandler.h>
+#include <iostream>
 #include "GameState.h"
 
 
@@ -38,6 +39,15 @@ void GameState::handleInput()
 
     while (_game->window.pollEvent(event))
     {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
+        {
+            _board->movePaddle(Paddle::Left);
+        }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
+        {
+            _board->movePaddle(Paddle::Right);
+        }
+
         _eventHandler->handleClose(event);
     }
 }

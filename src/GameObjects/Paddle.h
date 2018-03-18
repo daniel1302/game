@@ -7,6 +7,12 @@
 class Paddle : public GameObject
 {
 public:
+    enum Direction
+    {
+        Left,
+        Right
+    };
+
     Paddle(const sf::Texture &texture, const sf::IntRect& textureRect);
     sf::Sprite &getSprite() override;
 

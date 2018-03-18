@@ -12,6 +12,8 @@
 class Board
 {
 public:
+    const int32_t paddleSpeed = 12;
+
     Board(std::shared_ptr<GameData> game);
 
     const sf::Sprite &getBackground();
@@ -19,6 +21,8 @@ public:
     std::vector<Block> &getVisibleBlocks();
     const sf::Sprite &getPaddle();
     const sf::Sprite &getBall();
+
+    void movePaddle(Paddle::Direction direction);
 
 private:
     void generateLevel();

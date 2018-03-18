@@ -101,3 +101,36 @@ const sf::Sprite& Board::getBall()
 {
     return _ball->getSprite();
 }
+
+void Board::movePaddle(Paddle::Direction direction)
+{
+
+    int32_t offset = 0;
+
+    if (direction == Paddle::Direction::Left)
+    {
+        if (_paddle->getSprite().getPosition().x < paddleSpeed)
+        {
+            offset = -_paddle->getSprite().getPosition().x;
+        }
+        else
+        {
+            offset = -paddleSpeed;
+        }
+
+    }
+    else
+    {
+        uint32_t maxPos = SCREEN_WIDTH - _paddle->getSprite().getTextureRect().width;
+        if (maxPos - _paddle->getSprite().getPosition().x < paddleSpeed)
+        {
+            offset = maxPos - _paddle->getSprite().getPosition().x;
+        }
+        else
+        {
+            offset = paddleSpeed;
+        }
+    }
+
+    _paddle->getSprite().move(offset, 0);
+}
