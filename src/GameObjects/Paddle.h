@@ -2,8 +2,16 @@
 #define ARKANOID_PADDLE_H
 
 
-class Paddle {
+#include "GameObject.h"
 
+class Paddle : public GameObject
+{
+public:
+    Paddle(const sf::Texture &texture, const sf::IntRect& textureRect);
+    sf::Sprite &getSprite() override;
+
+private:
+    sf::Sprite _sprite;
 };
 
 

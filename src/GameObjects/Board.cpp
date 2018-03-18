@@ -1,6 +1,7 @@
 #include "Board.h"
 #include "definitions.h"
 #include <random>
+#include <iostream>
 
 
 Board::Board(std::shared_ptr<GameData> game)
@@ -17,6 +18,19 @@ Board::Board(std::shared_ptr<GameData> game)
     _background = sf::Sprite(
             game->assets.getTexture("game_background")
     );
+
+
+    _paddle = std::make_unique<Paddle>(
+        game->assets.getTexture("texture"),
+        sf::IntRect(0, 111, 161, 25)
+    );
+    _paddle->getSprite().setPosition(40, 700);
+
+    _ball = std::make_unique<Ball>(
+            game->assets.getTexture("texture"),
+            sf::IntRect(0, 80, 24, 24)
+    );
+    _ball->getSprite().setPosition(60, 450);
 
     generateLevel();
 }
@@ -42,7 +56,7 @@ void Board::generateLevel()
 
     std::random_device device;
     std::mt19937 engine{device()};
-    std::uniform_int_distribution<uint32_t> dist(10, 18);
+    std::uniform_int_distribution<uint32_t> dist(10, 14);
 
 
     uint32_t blocksPerLine;
@@ -54,12 +68,14 @@ void Board::generateLevel()
         blocksPerLine = dist(engine);
         rightOffset = (SCREEN_WIDTH-(blocksPerLine * 68)) / 2;
 
+        std::cout<<"Line: "<<line<<"blocks: "<<blocksPerLine<<std::endl<<std::flush;
         for(;blocksPerLine>0; blocksPerLine--)
         {
             _blocks.push_back(
-                    Block(_game->assets.getTexture("texture"),
-                    blocks.at(blocksPerLine%6),
-                    sf::Vector2f(SCREEN_WIDTH-rightOffset-(blocksPerLine*68), 20 + (line*33))
+                    Block(
+                            _game->assets.getTexture("texture"),\
+                            blocks.at(line%(blocks.size()-1)),
+                            sf::Vector2f(SCREEN_WIDTH-rightOffset-(blocksPerLine*68.0f), 20 + (line*33))
                     )
             );
         }
@@ -74,4 +90,14 @@ const sf::Sprite& Board::getBackground()
 std::vector<Block>& Board::getVisibleBlocks()
 {
     return _blocks;
+}
+
+const sf::Sprite& Board::getPaddle()
+{
+    return _paddle->getSprite();
+}
+
+const sf::Sprite& Board::getBall()
+{
+    return _ball->getSprite();
 }

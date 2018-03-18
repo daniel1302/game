@@ -17,8 +17,8 @@ public:
     const sf::Sprite &getBackground();
 
     std::vector<Block> &getVisibleBlocks();
-//    const Paddle &getPaddle() const;
-//    const Ball &getBall() const;
+    const sf::Sprite &getPaddle();
+    const sf::Sprite &getBall();
 
 private:
     void generateLevel();
@@ -27,8 +27,8 @@ private:
     std::shared_ptr<GameData> _game;
 
     std::vector<Block> _blocks;
-    std::unique_ptr<Ball> ball;
-    std::unique_ptr<Paddle> paddle;
+    std::unique_ptr<Ball> _ball;
+    std::unique_ptr<Paddle> _paddle;
 
 
     sf::Sprite _background;

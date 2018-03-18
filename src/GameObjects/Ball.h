@@ -7,7 +7,7 @@
 class Ball : public GameObject
 {
 public:
-    Ball(const sf::Texture &texture, const sf::IntRect textureRect);
+    Ball(const sf::Texture &texture, const sf::IntRect& textureRect);
     sf::Sprite &getSprite() override;
 
 private:

@@ -19,11 +19,15 @@ void GameState::draw(float dt)
     _game->window.clear();
 
     _game->window.draw(_board->getBackground());
+    _game->window.draw(_board->getPaddle());
+    _game->window.draw(_board->getBall());
 
     for (auto& x : _board->getVisibleBlocks())
     {
         _game->window.draw(x.getSprite());
     }
+
+
 
     _game->window.display();
 }
