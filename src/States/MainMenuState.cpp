@@ -32,11 +32,6 @@ void MainMenuState::init()
 
     _background.scale(scale);
 
-    _gameData
-            ->assets
-            .loadFont("arcade-classic", ARCADE_CLASSIC_FONT_FILEPATH);
-
-
 
     _titleText = std::make_unique<GameText>(
             "Arkanoid",
@@ -132,7 +127,6 @@ void MainMenuState::update(float dt)
 
 void MainMenuState::draw(float dt)
 {
-    _gameData->window.clear();
 
     _gameData->window.draw(_background);
 
@@ -142,7 +136,4 @@ void MainMenuState::draw(float dt)
     _gameData->window.draw(_authorsText->getText());
     _gameData->window.draw(_quitText->getText());
 
-
-
-    _gameData->window.display();
 }

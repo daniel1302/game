@@ -76,9 +76,6 @@ void SplashState::update(float dt)
 
 void SplashState::draw(float dt)
 {
-    _gameData->window.clear();
     _gameData->window.draw(_sprite);
-
-    _gameData->window.display();
 }
 

@@ -1,5 +1,10 @@
+#include <GameObjects/GameText.h>
+#include <iostream>
 #include "Game.h"
 #include "States/SplashState.h"
+#include "definitions.h"
+#include "Helpers/FpsMeterHelper.h"
+
 
 Game::Game(
         int windowWidth,
@@ -14,9 +19,22 @@ Game::Game(
 
     _gameData->machine.addState(std::make_unique<SplashState>(_gameData));
 
+    _gameData
+            ->assets
+            .loadFont("arcade-classic", ARCADE_CLASSIC_FONT_FILEPATH);
+
+
+    #if GAME_DEBUG
+        _helpers.push_back(
+                static_cast<std::unique_ptr<Drawable>> (
+                        std::make_unique<FpsMeterHelper>(_gameData))
+        );
+    #endif
+
     this->run();
 }
 
+//TODO(Daniel): Move below to Renderer class
 void Game::run()
 {
     float newTime, frameTime, interpolation;
@@ -58,10 +76,33 @@ void Game::run()
         }
 
         interpolation = accumulator / _dt;
+
+        this
+                ->_gameData
+                ->window
+                .clear();
+
+
         this
                 ->_gameData
                 ->machine
                 .getCurrentState()
                 ->draw(interpolation);
+
+        for (auto &helper : _helpers)
+        {
+            helper->update(interpolation);
+
+            this
+                    ->_gameData
+                    ->window
+                    .draw(helper->getItem());
+        }
+
+        this
+                ->_gameData
+                ->window
+                .display();
     }
 }
+
