@@ -37,7 +37,9 @@ set(SOURCE_FILES
         src/GameObjects/Ball.cpp src/GameObjects/Ball.h
         src/GameObjects/Board.cpp src/GameObjects/Board.h
         src/GameObjects/Paddle.cpp src/GameObjects/Paddle.h
-        src/EventHandler.cpp src/EventHandler.h)
+        src/EventHandler.cpp src/EventHandler.h
+        src/Drawable.h
+        src/Helpers/FpsMeterHelper.cpp src/Helpers/FpsMeterHelper.h)
 
 add_library(compiled_sources ${SOURCE_FILES})
 
