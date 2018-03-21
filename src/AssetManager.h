@@ -15,7 +15,8 @@ public:
     sf::Texture &getTexture(std::string const& name);
 
 
-    void loadFont(std::string const& name, std::string const& filePath);
+    void loadFont(std::string const& name, std::string const& filePath, bool overwrite=false);
+    bool doesFontExists(std::string const& name) const;
     sf::Font &getFont(std::string const& name);
 
 private:
