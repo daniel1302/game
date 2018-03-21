@@ -1,5 +1,4 @@
 #include <EventHandler.h>
-#include <iostream>
 #include "GameState.h"
 
 
@@ -30,6 +29,7 @@ void GameState::draw(float dt)
 void GameState::handleInput()
 {
     sf::Event event;
+
 
     while (_game->window.pollEvent(event))
     {

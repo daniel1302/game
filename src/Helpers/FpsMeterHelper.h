@@ -26,6 +26,9 @@ private:
 
     sf::Clock _clock;
     float _lastTime;
+    float _fpsAvg = 0;
+    float _lastUpdated = 0;
+    float _updateDelta = 0.5;
 };
 
 

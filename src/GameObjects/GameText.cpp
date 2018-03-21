@@ -57,7 +57,6 @@ GameText::GameText(
                 position.y
         );
     }
-
 }
 
 sf::Text& GameText::getText()

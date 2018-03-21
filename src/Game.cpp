@@ -1,5 +1,4 @@
 #include <GameObjects/GameText.h>
-#include <iostream>
 #include "Game.h"
 #include "States/SplashState.h"
 #include "definitions.h"
@@ -58,6 +57,7 @@ void Game::run()
         currentTime = newTime;
         accumulator += frameTime;
 
+
         while (accumulator >= _dt)
         {
             this
@@ -73,6 +73,11 @@ void Game::run()
                     ->update(_dt);
 
             accumulator -= _dt;
+
+            for (auto &helper : _helpers)
+            {
+                helper->update(_dt);
+            }
         }
 
         interpolation = accumulator / _dt;
@@ -82,17 +87,15 @@ void Game::run()
                 ->window
                 .clear();
 
-
         this
                 ->_gameData
                 ->machine
                 .getCurrentState()
                 ->draw(interpolation);
 
+
         for (auto &helper : _helpers)
         {
-            helper->update(interpolation);
-
             this
                     ->_gameData
                     ->window

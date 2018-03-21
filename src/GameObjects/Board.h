@@ -12,7 +12,7 @@
 class Board
 {
 public:
-    const int32_t paddleSpeed = 12;
+    const int32_t paddleSpeed = 72;
 
     Board(std::shared_ptr<GameData> game);
 

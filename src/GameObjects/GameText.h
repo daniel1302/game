@@ -32,7 +32,7 @@ public:
     sf::Text &getText();
 
     unsigned int getAlign();
-
+    //TODO(Daniel): void setPosition() or constructor with moved position vector;
 
 private:
     const unsigned int _align ;

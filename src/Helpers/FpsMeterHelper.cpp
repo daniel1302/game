@@ -1,4 +1,3 @@
-#include <iostream>
 #include "FpsMeterHelper.h"
 
 FpsMeterHelper::FpsMeterHelper(std::shared_ptr<GameData> game)
@@ -24,10 +23,17 @@ void FpsMeterHelper::update(float dt)
     float frameTime = _clock.getElapsedTime().asSeconds() - _lastTime;
     _lastTime = _clock.getElapsedTime().asSeconds();
 
-    std::string str = _prepareStrings(1.0/frameTime);
+    _fpsAvg = 0.5 * (_fpsAvg + (1.0/_lastTime));
 
-    _text->getText().setString(str);
+    float now = _clock.getElapsedTime().asSeconds();
+    if (now - _lastUpdated > _updateDelta)
+    {
+        _lastUpdated = now;
+        std::string str = _prepareStrings(1.0/frameTime);
+        _text->getText().setString(str);
+    }
 }
+
 
 sf::Drawable& FpsMeterHelper::getItem()
 {
