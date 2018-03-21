@@ -1,6 +1,8 @@
 #ifndef ARKANOID_DEFINITIONS_H
 #define ARKANOID_DEFINITIONS_H
 
+#define GAME_DEBUG true
+
 #define SCREEN_WIDTH 1024
 #define SCREEN_HEIGHT 768
 #define APPLICATION_TITLE "Arkanoid"
