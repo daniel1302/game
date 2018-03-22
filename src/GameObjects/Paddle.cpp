@@ -1,6 +1,6 @@
 #include "Paddle.h"
 #include "definitions.h"
-
+#include <cstdint>
 
 Paddle::Paddle(const sf::Texture &texture, const sf::IntRect& textureRect)
 {
@@ -27,7 +27,8 @@ void Paddle::update(float dt)
         return;
     }
 
-    int maxPosition = SCREEN_WIDTH - _sprite.getGlobalBounds().width;
+    uint32_t maxPosition = SCREEN_WIDTH - _sprite.getGlobalBounds().width;
+
     if (_sprite.getPosition().x < 0)
     {
         _speed = 0;
