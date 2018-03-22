@@ -48,5 +48,5 @@ void GameState::handleInput()
 
 void GameState::update(float dt)
 {
-
+    _board->update(dt);
 }

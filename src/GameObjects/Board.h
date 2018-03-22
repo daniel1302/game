@@ -16,12 +16,14 @@ public:
 
     Board(std::shared_ptr<GameData> game);
 
-    const sf::Sprite &getBackground();
+
 
     std::vector<Block> &getVisibleBlocks();
     const sf::Sprite &getPaddle();
     const sf::Sprite &getBall();
+    const sf::Sprite &getBackground();
 
+    void update(float dt);
     void movePaddle(Paddle::Direction direction);
 
 private:
