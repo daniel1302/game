@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Paddle.h"
 #include "definitions.h"
 
