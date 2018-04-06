@@ -14,6 +14,7 @@ public:
             const sf::Vector2f &position = sf::Vector2f(0,0)
     );
     sf::Sprite &getSprite() override;
+    void update(float dt) override;
 
 private:
     sf::Sprite _sprite{};

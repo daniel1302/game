@@ -10,7 +10,7 @@
 
 
 #define SPLASH_STATE_BACKGROUND_FILEPATH "../assets/splash_state_background.jpg"
-#define SPLASH_SCREEN_DURATION_MS 1
+#define SPLASH_SCREEN_DURATION_MS 1500
 
 
 #define TEXTURE_FILEPATH "../assets/texture.png"

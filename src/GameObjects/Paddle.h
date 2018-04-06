@@ -15,7 +15,7 @@ public:
 
     Paddle(const sf::Texture &texture, const sf::IntRect& textureRect);
     sf::Sprite &getSprite() override;
-    void update(float dt);
+    void update(float dt) override;
     void accelerate(Direction direction);
 
 private:

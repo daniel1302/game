@@ -30,7 +30,7 @@ Board::Board(std::shared_ptr<GameData> game)
             game->assets.getTexture("texture"),
             sf::IntRect(0, 80, 24, 24)
     );
-    _ball->getSprite().setPosition(60, 450);
+    _ball->getSprite().setPosition(500, 450);
 
     generateLevel();
 }
@@ -84,7 +84,32 @@ void Board::generateLevel()
 
 void Board::update(float dt)
 {
+    if (!_startedGame)
+    {
+        return;
+    }
+
+
     _paddle->update(dt);
+    _ball->update(dt);
+    if (collisionChecker.check(
+            _ball->getSprite(),
+            _paddle->getSprite()
+    )) {
+        _ball->paddleCollision();
+    }
+
+    sf::Vector2f ballPosition = _ball->getSprite().getPosition();
+
+    if (ballPosition.x <= 0)
+    {
+
+    }
+}
+
+void Board::startGame()
+{
+    _startedGame = true;
 }
 
 const sf::Sprite& Board::getBackground()

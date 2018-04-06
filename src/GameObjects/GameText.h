@@ -6,7 +6,8 @@
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Text.hpp>
 
-class GameText {
+class GameText
+{
 public:
     enum Align
     {

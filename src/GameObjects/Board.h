@@ -5,6 +5,7 @@
 #include <vector>
 #include <memory>
 #include <Game.h>
+#include <Math/SpriteCollision.h>
 #include "Paddle.h"
 #include "Ball.h"
 #include "Block.h"
@@ -25,6 +26,8 @@ public:
 
     void update(float dt);
     void movePaddle(Paddle::Direction direction);
+    void startGame();
+
 
 private:
     void generateLevel();
@@ -37,7 +40,9 @@ private:
     std::unique_ptr<Paddle> _paddle;
 
 
+    SpriteCollision collisionChecker;
     sf::Sprite _background;
+    float _startedGame = false;
 };
 
 

@@ -11,6 +11,10 @@ Block::Block(
     _sprite.setPosition(position);
 }
 
+void Block::update(float dt)
+{
+
+}
 
 sf::Sprite& Block::getSprite()
 {

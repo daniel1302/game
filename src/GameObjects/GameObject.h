@@ -6,6 +6,7 @@
 
 class GameObject {
 public:
+    virtual void update(float dt) = 0;
     virtual sf::Sprite &getSprite() = 0;
     virtual ~GameObject() {};
 };
