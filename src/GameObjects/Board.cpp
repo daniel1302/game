@@ -24,7 +24,7 @@ Board::Board(std::shared_ptr<GameData> game)
         game->assets.getTexture("texture"),
         sf::IntRect(0, 111, 161, 25)
     );
-    _paddle->getSprite().setPosition(40, 700);
+    _paddle->getSprite().setPosition(450, 700);
 
     _ball = std::make_unique<Ball>(
             game->assets.getTexture("texture"),
@@ -99,11 +99,23 @@ void Board::update(float dt)
         _ball->paddleCollision();
     }
 
+
     sf::Vector2f ballPosition = _ball->getSprite().getPosition();
+    sf::FloatRect ballSize = _ball->getSprite().getLocalBounds();
 
     if (ballPosition.x <= 0)
     {
+        _ball->borderCollision(Ball::Border::Left);
+    }
 
+    if (ballPosition.x > SCREEN_WIDTH - ballSize.width)
+    {
+        _ball->borderCollision(Ball::Border::Left);
+    }
+
+    if (ballPosition.y <= 0)
+    {
+        _ball->borderCollision(Ball::Border::Top);
     }
 }
 
