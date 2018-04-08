@@ -148,3 +148,8 @@ void Board::movePaddle(Paddle::Direction direction)
 {
     _paddle->accelerate(direction);
 }
+
+void Board::stopPaddle()
+{
+    _paddle->stop();
+}

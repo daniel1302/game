@@ -41,6 +41,9 @@ void GameState::handleInput()
         {
             _board->movePaddle(Paddle::Right);
         }
+        else {
+            _board->stopPaddle();
+        }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space))
         {

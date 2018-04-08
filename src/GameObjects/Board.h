@@ -26,6 +26,7 @@ public:
 
     void update(float dt);
     void movePaddle(Paddle::Direction direction);
+    void stopPaddle();
     void startGame();
 
 

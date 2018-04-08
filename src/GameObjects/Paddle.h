@@ -2,6 +2,7 @@
 #define ARKANOID_PADDLE_H
 
 
+#include <SFML/System/Clock.hpp>
 #include "GameObject.h"
 
 class Paddle : public GameObject
@@ -17,9 +18,13 @@ public:
     sf::Sprite &getSprite() override;
     void update(float dt) override;
     void accelerate(Direction direction);
+    void stop();
 
 private:
     sf::Sprite _sprite;
+    sf::Clock _clock;
+
+    float lastAcceleration;
 
     const float _maxSpeed = 360000;
     float _acceleration = 144000.0;

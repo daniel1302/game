@@ -2,6 +2,8 @@
 #include "definitions.h"
 #include <cstdint>
 
+
+
 Paddle::Paddle(const sf::Texture &texture, const sf::IntRect& textureRect)
 {
     _sprite.setTexture(texture);
@@ -15,11 +17,6 @@ sf::Sprite& Paddle::getSprite()
 
 void Paddle::update(float dt)
 {
-    if (_speed > 0)
-    {
-        _speed -= ((_maxSpeed - _speed) / _maxSpeed)*_acceleration*dt;
-    }
-
     if (_speed <= 0)
     {
         _speed = 0;
@@ -27,7 +24,7 @@ void Paddle::update(float dt)
         return;
     }
 
-    uint32_t maxPosition = SCREEN_WIDTH - _sprite.getGlobalBounds().width;
+    uint32_t maxPosition = SCREEN_WIDTH - static_cast<uint32_t>(_sprite.getGlobalBounds().width);
 
     if (_sprite.getPosition().x < 0)
     {
@@ -61,12 +58,14 @@ void Paddle::update(float dt)
 
 void Paddle::accelerate(Direction direction)
 {
+    lastAcceleration = _clock.getElapsedTime().asMicroseconds();
     _direction = direction;
 
-    if (_speed >= _maxSpeed)
-    {
-        _speed = _maxSpeed;
-        return;
-    }
-    _speed = _speed + ((_maxSpeed - _speed) / _maxSpeed) * _acceleration;
+    _speed = _maxSpeed;
+
+}
+
+void Paddle::stop()
+{
+    _speed = 0;
 }
