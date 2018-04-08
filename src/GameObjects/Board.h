@@ -19,7 +19,7 @@ public:
 
 
 
-    std::vector<Block> &getVisibleBlocks();
+    std::vector<Block> &getBlocks();
     const sf::Sprite &getPaddle();
     const sf::Sprite &getBall();
     const sf::Sprite &getBackground();

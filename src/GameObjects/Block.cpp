@@ -20,3 +20,13 @@ sf::Sprite& Block::getSprite()
 {
     return _sprite;
 }
+
+void Block::hide()
+{
+    _hidden = true;
+}
+
+bool Block::isHidden()
+{
+    return _hidden;
+}

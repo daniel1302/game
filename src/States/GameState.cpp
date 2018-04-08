@@ -20,8 +20,13 @@ void GameState::draw(float dt)
     _game->window.draw(_board->getPaddle());
     _game->window.draw(_board->getBall());
 
-    for (auto& x : _board->getVisibleBlocks())
+    for (auto& x : _board->getBlocks())
     {
+        if (x.isHidden())
+        {
+            continue;
+        }
+
         _game->window.draw(x.getSprite());
     }
 }

@@ -117,6 +117,17 @@ void Board::update(float dt)
     {
         _ball->borderCollision(Ball::Border::Top);
     }
+
+    for (auto &block : _blocks)
+    {
+        if (collisionChecker.check(
+                _ball->getSprite(),
+                block.getSprite()
+        )) {
+            block.hide();
+        }
+    }
+
 }
 
 void Board::startGame()
@@ -129,7 +140,7 @@ const sf::Sprite& Board::getBackground()
     return _background;
 }
 
-std::vector<Block>& Board::getVisibleBlocks()
+std::vector<Block>& Board::getBlocks()
 {
     return _blocks;
 }

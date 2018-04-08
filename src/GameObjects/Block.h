@@ -15,9 +15,13 @@ public:
     );
     sf::Sprite &getSprite() override;
     void update(float dt) override;
+    void hide();
+    bool isHidden();
 
 private:
     sf::Sprite _sprite{};
+
+    bool _hidden;
 };
 
 
