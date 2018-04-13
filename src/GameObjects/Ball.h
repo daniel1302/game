@@ -3,6 +3,7 @@
 
 
 #include "GameObject.h"
+#include "Block.h"
 
 class Ball : public GameObject
 {
@@ -23,6 +24,7 @@ public:
 
     void paddleCollision();
     void borderCollision(Border border);
+    void blockCollision(Block &block);
     float randSpeed(float speed);
 
 

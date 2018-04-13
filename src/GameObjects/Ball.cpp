@@ -69,6 +69,13 @@ void Ball::borderCollision(Border border)
     }
 }
 
+void Ball::blockCollision(Block &block)
+{
+    block.hide();
+    _moveVector.x *= -1.0;
+    _moveVector.y *= -1.0;
+}
+
 float Ball::randSpeed(float speed)
 {
     auto minSpeed = static_cast<int>(speed - speed * _speedDistro);

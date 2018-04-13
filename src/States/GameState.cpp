@@ -55,6 +55,11 @@ void GameState::handleInput()
             _board->startGame();
         }
 
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+        {
+            _game->machine.removeState();
+        }
+
         _eventHandler->handleClose(event);
     }
 }

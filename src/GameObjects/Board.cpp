@@ -120,11 +120,17 @@ void Board::update(float dt)
 
     for (auto &block : _blocks)
     {
+        if (block.isHidden())
+        {
+            continue;
+        }
+
+
         if (collisionChecker.check(
                 _ball->getSprite(),
                 block.getSprite()
         )) {
-            block.hide();
+            _ball->blockCollision(block);
         }
     }
 
