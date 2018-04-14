@@ -131,6 +131,7 @@ void Board::update(float dt)
                 block.getSprite()
         )) {
             _ball->blockCollision(block);
+            _game->points += 10;
         }
     }
 

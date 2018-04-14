@@ -1,5 +1,6 @@
 #include <EventHandler.h>
 #include "GameState.h"
+#include "definitions.h"
 
 
 GameState::GameState(std::shared_ptr<GameData> game)
@@ -12,6 +13,11 @@ GameState::GameState(std::shared_ptr<GameData> game)
 void GameState::init()
 {
 
+}
+
+std::string_view GameState::getName()
+{
+    return std::string_view(GAME_STATE_STR);
 }
 
 void GameState::draw(float dt)

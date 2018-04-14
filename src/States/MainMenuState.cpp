@@ -12,6 +12,12 @@ MainMenuState::MainMenuState(std::shared_ptr<GameData> game)
     _eventHandler = std::make_unique<EventHandler>(game);
 }
 
+std::string_view MainMenuState::getName()
+{
+    return std::string_view(MAIN_MENU_STATE_STR);
+}
+
+
 void MainMenuState::init()
 {
     _gameData

@@ -18,6 +18,8 @@ public:
     void update(float dt);
     void draw(float dt);
 
+    std::string_view getName();
+
 private:
     std::shared_ptr<GameData> _gameData;
 

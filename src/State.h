@@ -12,6 +12,7 @@ public:
     virtual void pause() { };
     virtual void resume() { };
 
+    virtual std::string_view getName() = 0;
 
     virtual ~State() { }
 };

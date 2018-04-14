@@ -10,6 +10,11 @@ SplashState::SplashState(std::shared_ptr<GameData> game)
     _gameData = game;
 }
 
+std::string_view SplashState::getName()
+{
+    return std::string_view(SPLASH_STATE_STR);
+}
+
 void SplashState::init()
 {
     _gameData

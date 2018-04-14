@@ -16,6 +16,8 @@ public:
     void update(float dt);
     void draw(float dt);
 
+    std::string_view getName();
+
 private:
     sf::Clock _clock;
     sf::Sprite _sprite;

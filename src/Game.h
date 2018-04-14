@@ -16,6 +16,8 @@ struct GameData
     sf::RenderWindow window;
     AssetManager assets;
     InputManager input;
+
+    int points = 0;
 };
 
 class Game

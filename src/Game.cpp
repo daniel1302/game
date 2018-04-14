@@ -1,4 +1,5 @@
 #include <GameObjects/GameText.h>
+#include <Helpers/PointCounterHelper.h>
 #include "Game.h"
 #include "States/SplashState.h"
 #include "definitions.h"
@@ -26,9 +27,14 @@ Game::Game(
     #if GAME_DEBUG
         _helpers.push_back(
                 static_cast<std::unique_ptr<Drawable>> (
-                        std::make_unique<FpsMeterHelper>(_gameData))
-        );
+                            std::make_unique<FpsMeterHelper>(_gameData))
+            );
     #endif
+
+    _helpers.push_back(
+            static_cast<std::unique_ptr<Drawable>> (
+                    std::make_unique<PointCounterHelper>(_gameData))
+    );
 
     this->run();
 }

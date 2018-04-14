@@ -21,5 +21,9 @@
 #define ARCADE_CLASSIC_FONT_FILEPATH "../assets/arcade-classic.ttf"
 
 
+#define MAIN_MENU_STATE_STR "MainMenu"
+#define GAME_STATE_STR "GameState"
+#define SPLASH_STATE_STR "SplashState"
+
 
 #endif //ARKANOID_DEFINITIONS_H
