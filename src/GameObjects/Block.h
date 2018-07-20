@@ -21,7 +21,7 @@ public:
 private:
     sf::Sprite _sprite{};
 
-    bool _hidden;
+    bool _hidden = false;
 };
 
 
