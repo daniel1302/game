@@ -26,15 +26,17 @@ public:
     void borderCollision(Border border);
     void blockCollision(Block &block);
     float randSpeed(float speed);
-
+    void enableCollisions();
 
 private:
     sf::Sprite _sprite;
 
     const float _speed = 400;
-    const float _speedDistro = 0.2;
+    const float _speedDistro = 0.4;
 
     sf::Vector2f _moveVector{0, 100};
+
+    bool _collisionWait = false;
 };
 
 

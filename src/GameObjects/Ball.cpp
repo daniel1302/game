@@ -22,9 +22,19 @@ void Ball::update(float dt)
     );
 }
 
+void Ball::enableCollisions()
+{
+    _collisionWait = false;
+}
+
 
 void Ball::paddleCollision()
 {
+    if (_collisionWait == true)
+    {
+        return;
+    }
+
     if (_moveVector.x > 0)
     {
         _moveVector.x = randSpeed(_speed);
@@ -43,10 +53,17 @@ void Ball::paddleCollision()
     {
         _moveVector.y = randSpeed(_speed);
     }
+
+    _collisionWait = true;
 }
 
 void Ball::borderCollision(Border border)
 {
+    if (_collisionWait == true)
+    {
+        return;
+    }
+
     if (_moveVector.x < 0)
     {
         _moveVector.x = randSpeed(_speed);
@@ -67,6 +84,8 @@ void Ball::borderCollision(Border border)
                 ? randSpeed(_speed)
                 : -1 * randSpeed(_speed);
     }
+
+    _collisionWait = true;
 }
 
 void Ball::blockCollision(Block &block)
@@ -79,7 +98,7 @@ void Ball::blockCollision(Block &block)
 float Ball::randSpeed(float speed)
 {
     auto minSpeed = static_cast<int>(speed - speed * _speedDistro);
-    auto maxSpeed = static_cast<int>(speed - speed * _speedDistro);
+    auto maxSpeed = static_cast<int>(speed + speed * _speedDistro);
 
     std::random_device random_device;
     std::mt19937 engine{random_device()};

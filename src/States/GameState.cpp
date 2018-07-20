@@ -2,7 +2,6 @@
 #include "GameState.h"
 #include "definitions.h"
 
-
 GameState::GameState(std::shared_ptr<GameData> game)
 :_game(game)
 {

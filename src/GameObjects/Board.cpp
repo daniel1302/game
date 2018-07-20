@@ -84,6 +84,14 @@ void Board::generateLevel()
 
 void Board::update(float dt)
 {
+    static int disabledCollisionCounter = 0;
+    if (disabledCollisionCounter++ % 5 == 0)
+    {
+        _ball->enableCollisions();
+        disabledCollisionCounter = 0;
+    }
+
+
     if (!_startedGame)
     {
         return;
