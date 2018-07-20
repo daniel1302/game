@@ -4,6 +4,8 @@
 
 #include "GameObject.h"
 #include "Block.h"
+#include "Paddle.h"
+#include <memory>
 
 class Ball : public GameObject
 {
@@ -27,6 +29,7 @@ public:
     void blockCollision(Block &block);
     float randSpeed(float speed);
     void enableCollisions();
+    bool isUnderPaddle(std::unique_ptr<Paddle> &paddle);
 
 private:
     sf::Sprite _sprite;

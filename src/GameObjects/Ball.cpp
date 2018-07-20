@@ -106,3 +106,14 @@ float Ball::randSpeed(float speed)
 
     return dist(engine);
 }
+
+bool Ball::isUnderPaddle(std::unique_ptr<Paddle> &paddle)
+{
+    sf::Vector2f currentPosition = _sprite.getPosition();
+
+    if (currentPosition.y > paddle->getSprite().getPosition().y) {
+        return true;
+    }
+
+    return false;
+}

@@ -143,6 +143,10 @@ void Board::update(float dt)
         }
     }
 
+    if (_ball->isUnderPaddle(_paddle))
+    {
+        _game->machine.addState(std::make_unique<GameOver>(_game));
+    }
 }
 
 void Board::startGame()

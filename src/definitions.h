@@ -24,6 +24,7 @@
 #define MAIN_MENU_STATE_STR "MainMenu"
 #define GAME_STATE_STR "GameState"
 #define SPLASH_STATE_STR "SplashState"
+#define GAME_OVER_STATE_STR "GameOverState"
 
 
 #endif //ARKANOID_DEFINITIONS_H

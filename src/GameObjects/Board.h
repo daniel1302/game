@@ -5,6 +5,7 @@
 #include <vector>
 #include <memory>
 #include <Game.h>
+#include "States/GameOver.h"
 #include <Math/SpriteCollision.h>
 #include "Paddle.h"
 #include "Ball.h"
